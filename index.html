@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peaky Blinders | By Order of the Shelby Company</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS (Animate On Scroll) Library CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#111111',
+                        smoke: '#1A1A1A',
+                        gold: '#D4AF37',
+                        amberGlow: '#C66B27',
+                        ivory: '#E5E0D8',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        }
+                    },
+                    animation: {
+                        marquee: 'marquee 35s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #111111; color: #E5E0D8; font-family: 'Montserrat', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(17,17,17,0.4), rgba(17,17,17,0.95)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRPWLz-T_zQeUb9LxA0cJGXykSBO_qS4-9BiopAkA-mF-P84LMzhdZaDpp&s=10') no-repeat center center/cover;
+        }
+        .character-img {
+            filter: grayscale(100%) contrast(120%);
+            transition: all 0.5s ease;
+        }
+        .group:hover .character-img {
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.03);
+        }
+        .marquee-container:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-charcoal overflow-x-hidden">
+
+    <!-- 1. STICKY HEADER & MENÚ DESPLEGABLE -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-charcoal/90 backdrop-blur-md border-b border-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-serif text-gold text-xl md:text-2xl tracking-widest uppercase font-bold">
+                PEAKY BLINDERS
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm tracking-widest uppercase">
+                <a href="#sinopsis" class="hover:text-gold transition-colors">Historia</a>
+                
+                <!-- Dropdown Temporadas -->
+                <div class="relative group">
+                    <button class="flex items-center space-x-1 hover:text-gold transition-colors py-2 focus:outline-none">
+                        <span>Temporadas</span>
+                        <svg class="w-4 h-4 text-gold transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute left-0 mt-0 w-48 bg-smoke border border-gold/30 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left">
+                        <a href="#temp-1" class="block px-4 py-3 text-xs tracking-wider hover:bg-gold/10 hover:text-gold transition-colors border-b border-white/5">Temporada 1</a>
+                        <a href="#temp-2" class="block px-4 py-3 text-xs tracking-wider hover:bg-gold/10 hover:text-gold transition-colors border-b border-white/5">Temporada 2</a>
+                        <a href="#temp-3" class="block px-4 py-3 text-xs tracking-wider hover:bg-gold/10 hover:text-gold transition-colors border-b border-white/5">Temporada 3</a>
+                        <a href="#temp-4" class="block px-4 py-3 text-xs tracking-wider hover:bg-gold/10 hover:text-gold transition-colors border-b border-white/5">Temporada 4</a>
+                        <a href="#temp-5" class="block px-4 py-3 text-xs tracking-wider hover:bg-gold/10 hover:text-gold transition-colors border-b border-white/5">Temporada 5</a>
+                        <a href="#temp-6" class="block px-4 py-3 text-xs tracking-wider hover:bg-gold/10 hover:text-gold transition-colors">Temporada 6</a>
+                    </div>
+                </div>
+
+                <a href="#personajes" class="hover:text-gold transition-colors">Personajes</a>
+                <a href="#garrison" class="hover:text-gold transition-colors text-amberGlow font-semibold">The Garrison</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative h-screen flex items-center justify-center text-center hero-bg px-4">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10 max-w-4xl mx-auto mt-16" data-aos="fade-in" data-aos-duration="1200">
+            <span class="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-semibold block mb-4">By Order of the Peaky Blinders</span>
+            <h1 class="font-serif text-4xl md:text-7xl font-bold tracking-wide text-ivory mb-6 leading-tight">
+                Birmingham, 1919. <br><span class="italic font-normal text-gold">La ley la escribimos nosotros.</span>
+            </h1>
+            <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-10 font-light">
+                Adéntrate en el peligroso bajo mundo criminal de la familia Shelby, donde las hojas de afeitar cosidas en las gorras dictan el destino de una era.
+            </p>
+            <a href="#sinopsis" class="inline-block border border-gold text-gold px-8 py-4 uppercase text-xs tracking-[0.2em] hover:bg-gold hover:text-charcoal transition-all duration-300 font-semibold">
+                Explorar el Imperio
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. DESCRIPCIÓN GENERAL -->
+    <section id="sinopsis" class="py-28 px-6 bg-charcoal border-t border-white/5">
+        <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="font-serif text-3xl md:text-4xl text-gold mb-8">Ascenso y Sangre</h2>
+            <div class="w-16 h-0.5 bg-gold/55 mx-auto mb-8"></div>
+            <p class="text-gray-300 text-lg leading-relaxed font-light mb-6">
+                Regresados de las trincheras de la Primera Guerra Mundial, los hermanos Shelby liderados por el calculador Thomas Shelby buscan expandir su poder más allá de las apuestas clandestinas en Small Heath. 
+            </p>
+            <p class="text-gray-400 text-base leading-relaxed font-light">
+                Entre tratos con el comunismo, la mafia de Chicago, la alta política británica y el contrabando de alcohol, cada victoria se paga con sangre y astucia implacable.
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. TIMELINE DE TEMPORADAS -->
+    <section class="py-24 px-6 bg-smoke/50 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <span class="text-gold uppercase tracking-[0.2em] text-xs">Crónica de una dinastía</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-ivory mt-2">Las 6 Temporadas</h2>
+            </div>
+
+            <!-- Temp 1 -->
+            <div id="temp-1" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                <div class="order-2 md:order-1" data-aos="fade-right" data-aos-duration="900">
+                    <span class="text-gold font-serif text-2xl">01</span>
+                    <h3 class="font-serif text-3xl text-ivory mt-1 mb-4">El Comienzo del Imperio</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">Thomas Shelby roba un cargamento de armas, atrayendo la atención del implacable Inspector Campbell.</p>
+                </div>
+                <div class="order-1 md:order-2 h-72 md:h-96 rounded overflow-hidden border border-white/10 shadow-2xl" data-aos="fade-left" data-aos-duration="900">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR13Mhi9bRaiqLYmft3MoJUIgNj7y2qkULj9S8cLrIjqhN0UZRCWJscAOSz&s=10" class="w-full h-full object-cover filter contrast-125">
+                </div>
+            </div>
+
+            <!-- Temp 2 -->
+            <div id="temp-2" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                <div class="h-72 md:h-96 rounded overflow-hidden border border-white/10 shadow-2xl" data-aos="fade-right" data-aos-duration="900">
+                    <img src="https://fotos.perfil.com/2025/10/04/trim/950/534/peaky-blinders-2-llega-a-netflix-cuando-se-podra-ver-y-todo-lo-que-se-sabe-sobre-la-nueva-temporada-2112272.jpg" class="w-full h-full object-cover filter contrast-125">
+                </div>
+                <div data-aos="fade-left" data-aos-duration="900">
+                    <span class="text-gold font-serif text-2xl">02</span>
+                    <h3 class="font-serif text-3xl text-ivory mt-1 mb-4">Londres y el Sur</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">Los negocios se extienden al sur de Inglaterra cruzándose con Alfie Solomons y la mafia italiana.</p>
+                </div>
+            </div>
+
+            <!-- Temp 3 -->
+            <div id="temp-3" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                <div class="order-2 md:order-1" data-aos="fade-right" data-aos-duration="900">
+                    <span class="text-gold font-serif text-2xl">03</span>
+                    <h3 class="font-serif text-3xl text-ivory mt-1 mb-4">La Alta Esfera</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">En su boda, Tommy es arrastrado a una red internacional de espionaje ruso y diplomacia secreta.</p>
+                </div>
+                <div class="order-1 md:order-2 h-72 md:h-96 rounded overflow-hidden border border-white/10 shadow-2xl" data-aos="fade-left" data-aos-duration="900">
+                    <img src="https://i.pinimg.com/736x/36/8f/d0/368fd0a09024c6e11cc83941990eddcb.jpg" class="w-full h-full object-cover filter contrast-125">
+                </div>
+            </div>
+
+            <!-- Temp 4 -->
+            <div id="temp-4" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                <div class="h-72 md:h-96 rounded overflow-hidden border border-white/10 shadow-2xl" data-aos="fade-right" data-aos-duration="900">
+                    <img src="https://i.blogs.es/ed42bd/peaky-blinders-temporada-4-trailer/840_560.jpg" class="w-full h-full object-cover filter contrast-125">
+                </div>
+                <div data-aos="fade-left" data-aos-duration="900">
+                    <span class="text-gold font-serif text-2xl">04</span>
+                    <h3 class="font-serif text-3xl text-ivory mt-1 mb-4">La Venganza de la Mafia</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">Luca Changretta llega desde Nueva York buscando venganza de sangre contra cada miembro de los Shelby.</p>
+                </div>
+            </div>
+
+            <!-- Temp 5 -->
+            <div id="temp-5" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                <div class="order-2 md:order-1" data-aos="fade-right" data-aos-duration="900">
+                    <span class="text-gold font-serif text-2xl">05</span>
+                    <h3 class="font-serif text-3xl text-ivory mt-1 mb-4">La Sombra del Fascismo</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">Convertido en parlamentario, Tommy se enfrenta al político fascista Oswald Mosley desde adentro.</p>
+                </div>
+                <div class="order-1 md:order-2 h-72 md:h-96 rounded overflow-hidden border border-white/10 shadow-2xl" data-aos="fade-left" data-aos-duration="900">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/peaky-blinders-temporada-5-1570988496.jpg" class="w-full h-full object-cover filter contrast-125">
+                </div>
+            </div>
+
+            <!-- Temp 6 -->
+            <div id="temp-6" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="h-72 md:h-96 rounded overflow-hidden border border-white/10 shadow-2xl" data-aos="fade-right" data-aos-duration="900">
+                    <img src="https://i.blogs.es/edb615/peaky-blinders-temporada-6/840_560.jpeg" class="w-full h-full object-cover filter contrast-125">
+                </div>
+                <div data-aos="fade-left" data-aos-duration="900">
+                    <span class="text-gold font-serif text-2xl">06</span>
+                    <h3 class="font-serif text-3xl text-ivory mt-1 mb-4">El Fin de Era</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">Frente a tragedias personales y el tráfico de opio, Tommy afronta su destino en un mundo al borde de la guerra.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. CARRUSEL AUTOMÁTICO DE PERSONAJES (Con scale en hover) -->
+    <section id="personajes" class="py-24 bg-charcoal overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-12 text-center" data-aos="fade-up">
+            <span class="text-gold uppercase tracking-[0.2em] text-xs">Almas de Small Heath</span>
+            <h2 class="font-serif text-3xl md:text-5xl text-ivory mt-2">Galería de Personajes</h2>
+            <p class="text-gray-400 text-sm mt-2">Desplazamiento automático en bucle continuo</p>
+        </div>
+
+        <div class="marquee-container relative w-full overflow-hidden flex">
+            <div class="flex space-x-6 animate-marquee py-6 whitespace-nowrap">
+                
+                <!-- Personaje 1 -->
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Tommy_Shelby.jpg/250px-Tommy_Shelby.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail" class="character-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 whitespace-normal">
+                        <h3 class="font-serif text-lg text-gold font-bold">Thomas Shelby</h3>
+                        <p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Líder y Patriarca</p>
+                        <p class="text-xs text-gray-300 font-light">Estratega maestro del imperio Shelby y veterano de guerra.</p>
+                    </div>
+                </div>
+
+                <!-- Personaje 2 -->
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0SaBabfUzILVpnWS1b1CMrLAdFCh9tLBgqQVZ0TOUkQ&s=10" class="character-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 whitespace-normal">
+                        <h3 class="font-serif text-lg text-gold font-bold">Arthur Shelby</h3>
+                        <p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">El Músculo</p>
+                        <p class="text-xs text-gray-300 font-light">Violento, leal hasta el extremo y acosado por sus demonios.</p>
+                    </div>
+                </div>
+
+                <!-- Personaje 3 -->
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppU-Ho6gF1K5pKPXHU7j-6R6N0XdrmJVMLReJe14icg&s=10" class="character-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 whitespace-normal">
+                        <h3 class="font-serif text-lg text-gold font-bold">Tía Polly Gray</h3>
+                        <p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Tesorera y Consejera</p>
+                        <p class="text-xs text-gray-300 font-light">El corazón místico y financiero que sostuvo a la familia en crisis.</p>
+                    </div>
+                </div>
+
+                <!-- Personaje 4 -->
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBtRrg1qpv9hYLtgESJAbuKU9Y_eKjWAjdH5CTQtknpg&s=10" class="character-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 whitespace-normal">
+                        <h3 class="font-serif text-lg text-gold font-bold">John Shelby</h3>
+                        <p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">El Hermano Rebelde</p>
+                        <p class="text-xs text-gray-300 font-light">Impulsivo y letal, pilar fundamental en las guerras de pandillas.</p>
+                    </div>
+                </div>
+
+                <!-- Personaje 5 -->
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSRc_IKOMUmJWiy3X2VYVsHXAIh7COI3sn4XzZGak6lw&s=10" class="character-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 whitespace-normal">
+                        <h3 class="font-serif text-lg text-gold font-bold">Ada Shelby</h3>
+                        <p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">La Intelectual</p>
+                        <p class="text-xs text-gray-300 font-light">La única hermana que intentó escapar de los negocios, terminando en la política.</p>
+                    </div>
+                </div>
+
+                <!-- Personaje 6 -->
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSmQESTJz2n_RiJWnK7KC8CMx-BhXtJcheD-VVEpmPg&s=10" class="character-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 whitespace-normal">
+                        <h3 class="font-serif text-lg text-gold font-bold">Alfie Solomons</h3>
+                        <p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Líder de Camden Town</p>
+                        <p class="text-xs text-gray-300 font-light">Impredecible, culto y el socio más fascinante de Thomas.</p>
+                    </div>
+                </div>
+
+                <!-- Personaje 7 -->
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX_WqNURdgSg2gB82IO1DJaTQbn2u3bkoDrHyDy0Nf5w&s=10" class="character-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 whitespace-normal">
+                        <h3 class="font-serif text-lg text-gold font-bold">Michael Gray</h3>
+                        <p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">El Ambicioso</p>
+                        <p class="text-xs text-gray-300 font-light">Hijo de Polly, educado en finanzas pero corrompido por el poder.</p>
+                    </div>
+                </div>
+
+                <!-- DUPLICADOS PARA BUCLE INFINITO -->
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Tommy_Shelby.jpg/250px-Tommy_Shelby.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail" class="character-img w-full h-full object-cover"></div>
+                    <div class="p-5 whitespace-normal"><h3 class="font-serif text-lg text-gold font-bold">Thomas Shelby</h3><p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Líder y Patriarca</p><p class="text-xs text-gray-300 font-light">Estratega maestro del imperio Shelby y veterano de guerra.</p></div>
+                </div>
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0SaBabfUzILVpnWS1b1CMrLAdFCh9tLBgqQVZ0TOUkQ&s=10" class="character-img w-full h-full object-cover"></div>
+                    <div class="p-5 whitespace-normal"><h3 class="font-serif text-lg text-gold font-bold">Arthur Shelby</h3><p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">El Músculo</p><p class="text-xs text-gray-300 font-light">Violento, leal hasta el extremo y acosado por sus demonios.</p></div>
+                </div>
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppU-Ho6gF1K5pKPXHU7j-6R6N0XdrmJVMLReJe14icg&s=10" class="character-img w-full h-full object-cover"></div>
+                    <div class="p-5 whitespace-normal"><h3 class="font-serif text-lg text-gold font-bold">Tía Polly Gray</h3><p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Tesorera y Consejera</p><p class="text-xs text-gray-300 font-light">El corazón místico y financiero que sostuvo a la familia en crisis.</p></div>
+                </div>
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBtRrg1qpv9hYLtgESJAbuKU9Y_eKjWAjdH5CTQtknpg&s=10" class="character-img w-full h-full object-cover"></div>
+                    <div class="p-5 whitespace-normal"><h3 class="font-serif text-lg text-gold font-bold">John Shelby</h3><p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">El Hermano Rebelde</p><p class="text-xs text-gray-300 font-light">Impulsivo y letal, pilar fundamental en las guerras de pandillas.</p></div>
+                </div>
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSRc_IKOMUmJWiy3X2VYVsHXAIh7COI3sn4XzZGak6lw&s=10" class="character-img w-full h-full object-cover"></div>
+                    <div class="p-5 whitespace-normal"><h3 class="font-serif text-lg text-gold font-bold">Ada Shelby</h3><p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">La Intelectual</p><p class="text-xs text-gray-300 font-light">La única hermana que intentó escapar de los negocios, terminando en la política.</p></div>
+                </div>
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSmQESTJz2n_RiJWnK7KC8CMx-BhXtJcheD-VVEpmPg&s=10" class="character-img w-full h-full object-cover"></div>
+                    <div class="p-5 whitespace-normal"><h3 class="font-serif text-lg text-gold font-bold">Alfie Solomons</h3><p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Líder de Camden Town</p><p class="text-xs text-gray-300 font-light">Impredecible, culto y el socio más fascinante de Thomas.</p></div>
+                </div>
+                <div class="w-72 bg-smoke border border-white/5 rounded overflow-hidden flex-shrink-0 group transition-all duration-500 hover:scale-105 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 cursor-pointer">
+                    <div class="h-72 overflow-hidden"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX_WqNURdgSg2gB82IO1DJaTQbn2u3bkoDrHyDy0Nf5w&s=10" class="character-img w-full h-full object-cover"></div>
+                    <div class="p-5 whitespace-normal"><h3 class="font-serif text-lg text-gold font-bold">Michael Gray</h3><p class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">El Ambicioso</p><p class="text-xs text-gray-300 font-light">Hijo de Polly, educado en finanzas pero corrompido por el poder.</p></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SECCIÓN EXTRA: EL PUB THE GARRISON -->
+    <section id="garrison" class="py-24 px-6 bg-smoke border-t border-gold/20 text-center" data-aos="fade-up">
+        <div class="max-w-2xl mx-auto">
+            <span class="text-amberGlow uppercase tracking-[0.2em] text-xs font-semibold">El Pub The Garrison</span>
+            <h2 class="font-serif text-3xl md:text-4xl text-ivory mt-2 mb-6">Apuestas y Citas Clandestinas</h2>
+            <p class="text-gray-400 text-sm mb-10 font-light">
+                Pide un trago en la barra y recuerda la orden del día de los Peaky Blinders.
+            </p>
+
+            <div class="bg-charcoal border border-gold/40 p-8 rounded shadow-2xl relative">
+                <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gold text-charcoal px-4 py-0.5 text-[10px] uppercase font-bold tracking-widest rounded">By Order of...</span>
+                <p id="quote-box" class="font-serif italic text-xl md:text-2xl text-ivory mb-6 min-h-[90px] flex items-center justify-center">
+                    "Todo el mundo es puta, Grace. Solo que vendemos partes diferentes de nosotros mismos."
+                </p>
+                <button onclick="changeQuote()" class="bg-amberGlow text-charcoal font-semibold px-6 py-3 uppercase text-xs tracking-widest rounded hover:bg-gold transition-colors">
+                    Nueva Frase de los Shelby
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-charcoal border-t border-white/5 text-center text-gray-500 text-xs tracking-widest">
+        <p>&copy; 2026 Shelby Company Limited. All rights reserved. No fucking fighting.</p>
+    </footer>
+
+    <!-- AOS Script Initialization -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, 
+            offset: 100, 
+        });
+
+        // Generador de Frases
+        const quotes = [
+            "\"Todo el mundo es puta, Grace. Solo que vendemos partes diferentes de nosotros mismos.\" — Thomas Shelby",
+            "\"Los hombres inteligentes no se equivocan nunca, o al menos no cometen errores fatales.\" — Thomas Shelby",
+            "\"Por los que ya no están. Y por los que aún están por venir.\" — Arthur Shelby",
+            "\"No hay descanso para los malvados hasta que cruzamos las puertas del infierno.\" — Polly Gray",
+            "\"Yo no pago por trajes. Mis trajes corren por cuenta de la casa, o la casa cae.\" — Alfie Solomons",
+            "\"La locura es un lujo que los pobres no se pueden permitir.\" — Thomas Shelby"
+        ];
+
+        function changeQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quoteBox = document.getElementById('quote-box');
+            quoteBox.style.opacity = 0;
+            setTimeout(() => {
+                quoteBox.innerText = quotes[randomIndex];
+                quoteBox.style.opacity = 1;
+            }, 200);
+        }
+        
+        document.getElementById('quote-box').style.transition = 'opacity 0.2s ease-in-out';
+    </script>
+</body>
+</html>
