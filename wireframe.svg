@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 2980" width="1200" height="2980" style="background-color: #F8FAFC; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <style>
+      .wire-bg { fill: #FFFFFF; stroke: #E2E8F0; stroke-width: 1.5; }
+      .wire-section-alt { fill: #F1F5F9; stroke: #E2E8F0; stroke-width: 1.5; }
+      .wire-card { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 1.5; rx: 6px; }
+      .wire-card-inner { fill: #F8FAFC; stroke: #E2E8F0; stroke-width: 1; rx: 4px; }
+      .wire-img-ph { fill: #E2E8F0; stroke: #94A3B8; stroke-width: 1.5; stroke-dasharray: 6 4; rx: 6px; }
+      .wire-btn { fill: #334155; rx: 4px; }
+      .wire-btn-outline { fill: #FFFFFF; stroke: #334155; stroke-width: 2; rx: 4px; }
+      .wire-tag { fill: #E2E8F0; rx: 12px; }
+      .wire-line { stroke: #94A3B8; stroke-linecap: round; }
+      .text-title { font-size: 20px; font-weight: 700; fill: #0F172A; }
+      .text-subtitle { font-size: 14px; font-weight: 600; fill: #334155; }
+      .text-body { font-size: 12px; fill: #64748B; }
+      .text-meta { font-size: 10px; font-weight: 600; fill: #94A3B8; letter-spacing: 1.5px; }
+      .text-btn { font-size: 12px; font-weight: 600; fill: #FFFFFF; text-anchor: middle; }
+      .text-btn-out { font-size: 12px; font-weight: 600; fill: #334155; text-anchor: middle; }
+      .text-img { font-size: 13px; font-weight: 500; fill: #64748B; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- ==================== PROGRESS BAR ==================== -->
+  <rect x="0" y="0" width="1200" height="4" fill="#E2E8F0" />
+  <rect x="0" y="0" width="420" height="4" fill="#334155" />
+
+  <!-- ==================== 1. STICKY HEADER ==================== -->
+  <g id="header">
+    <rect x="0" y="4" width="1200" height="76" class="wire-bg" />
+    <line x1="0" y1="80" x2="1200" y2="80" stroke="#CBD5E1" stroke-width="1.5" />
+    <!-- Logo -->
+    <rect x="60" y="26" width="32" height="32" rx="6" fill="#0F172A" />
+    <text x="104" y="47" class="text-title" font-size="16" letter-spacing="1">PEAKY BLINDERS</text>
+    <!-- Nav Links -->
+    <text x="710" y="47" class="text-subtitle">Historia</text>
+    <text x="800" y="47" class="text-subtitle">Temporadas ▾</text>
+    <text x="940" y="47" class="text-subtitle">Personajes</text>
+    <rect x="1050" y="24" width="90" height="36" class="wire-btn" />
+    <text x="1095" y="46" class="text-btn">Garrison</text>
+  </g>
+
+  <!-- ==================== 2. HERO SECTION ==================== -->
+  <g id="hero" transform="translate(0, 80)">
+    <rect x="0" y="0" width="1200" height="520" class="wire-section-alt" />
+    <!-- Center Content Box -->
+    <rect x="500" y="100" width="200" height="24" class="wire-tag" />
+    <text x="600" y="116" class="text-meta" text-anchor="middle">BY ORDER OF THE SHELBY CO.</text>
+    
+    <!-- Title Skeleton Lines -->
+    <line x1="280" y1="160" x2="920" y2="160" class="wire-line" stroke-width="16" stroke="#0F172A" />
+    <line x1="360" y1="195" x2="840" y2="195" class="wire-line" stroke-width="16" stroke="#0F172A" />
+    
+    <!-- Subtitle Skeleton Lines -->
+    <line x1="340" y1="250" x2="860" y2="250" class="wire-line" stroke-width="4" />
+    <line x1="390" y1="270" x2="810" y2="270" class="wire-line" stroke-width="4" />
+    
+    <!-- CTA Button -->
+    <rect x="510" y="330" width="180" height="46" class="wire-btn-outline" />
+    <text x="600" y="358" class="text-btn-out" letter-spacing="1">EXPLORAR IMPERIO</text>
+  </g>
+
+  <!-- ==================== 3. SINOPSIS SECTION ==================== -->
+  <g id="sinopsis" transform="translate(0, 600)">
+    <rect x="0" y="0" width="1200" height="280" class="wire-bg" />
+    <text x="600" y="65" class="text-title" text-anchor="middle">Ascenso y Sangre</text>
+    <line x1="570" y1="85" x2="630" y2="85" stroke="#334155" stroke-width="3" stroke-linecap="round" />
+    
+    <!-- Paragraph Lines -->
+    <line x1="300" y1="130" x2="900" y2="130" class="wire-line" stroke-width="3" />
+    <line x1="260" y1="150" x2="940" y2="150" class="wire-line" stroke-width="3" />
+    <line x1="340" y1="170" x2="860" y2="170" class="wire-line" stroke-width="3" />
+    
+    <line x1="320" y1="210" x2="880" y2="210" class="wire-line" stroke-width="3" stroke="#CBD5E1" />
+    <line x1="380" y1="230" x2="820" y2="230" class="wire-line" stroke-width="3" stroke="#CBD5E1" />
+  </g>
+
+  <!-- ==================== 4. CRÓNICA DE TEMPORADAS ==================== -->
+  <g id="temporadas" transform="translate(0, 880)">
+    <rect x="0" y="0" width="1200" height="980" class="wire-section-alt" />
+    <text x="600" y="55" class="text-meta" text-anchor="middle">CRÓNICA DE UNA DINASTÍA</text>
+    <text x="600" y="85" class="text-title" text-anchor="middle">Las 6 Temporadas</text>
+
+    <!-- Temp 1 (Text Left, Img Right) -->
+    <g transform="translate(100, 130)">
+      <text x="0" y="40" class="text-title" fill="#64748B">01</text>
+      <text x="0" y="70" class="text-subtitle">El Comienzo del Imperio</text>
+      <line x1="0" y1="100" x2="420" y2="100" class="wire-line" stroke-width="3" />
+      <line x1="0" y1="118" x2="380" y2="118" class="wire-line" stroke-width="3" />
+      <!-- Image Placeholder -->
+      <rect x="520" y="0" width="480" height="150" class="wire-img-ph" />
+      <text x="760" y="80" class="text-img">[ Imagen Temp 1 ]</text>
+    </g>
+
+    <!-- Temp 2 (Img Left, Text Right) -->
+    <g transform="translate(100, 310)">
+      <rect x="0" y="0" width="480" height="150" class="wire-img-ph" />
+      <text x="240" y="80" class="text-img">[ Imagen Temp 2 ]</text>
+      <!-- Text -->
+      <text x="540" y="40" class="text-title" fill="#64748B">02</text>
+      <text x="540" y="70" class="text-subtitle">Londres y el Sur</text>
+      <line x1="540" y1="100" x2="960" y2="100" class="wire-line" stroke-width="3" />
+      <line x1="540" y1="118" x2="900" y2="118" class="wire-line" stroke-width="3" />
+    </g>
+
+    <!-- Temp 3 (Text Left, Img Right) -->
+    <g transform="translate(100, 490)">
+      <text x="0" y="40" class="text-title" fill="#64748B">03</text>
+      <text x="0" y="70" class="text-subtitle">La Alta Esfera</text>
+      <line x1="0" y1="100" x2="420" y2="100" class="wire-line" stroke-width="3" />
+      <line x1="0" y1="118" x2="360" y2="118" class="wire-line" stroke-width="3" />
+      <!-- Image Placeholder -->
+      <rect x="520" y="0" width="480" height="150" class="wire-img-ph" />
+      <text x="760" y="80" class="text-img">[ Imagen Temp 3 ]</text>
+    </g>
+
+    <!-- Temp 4 (Img Left, Text Right) -->
+    <g transform="translate(100, 670)">
+      <rect x="0" y="0" width="480" height="150" class="wire-img-ph" />
+      <text x="240" y="80" class="text-img">[ Imagen Temp 4 ]</text>
+      <!-- Text -->
+      <text x="540" y="40" class="text-title" fill="#64748B">04</text>
+      <text x="540" y="70" class="text-subtitle">La Venganza de la Mafia</text>
+      <line x1="540" y1="100" x2="980" y2="100" class="wire-line" stroke-width="3" />
+      <line x1="540" y1="118" x2="910" y2="118" class="wire-line" stroke-width="3" />
+    </g>
+
+    <!-- Indicator More Seasons -->
+    <text x="600" y="880" class="text-body" text-anchor="middle">+ Temporadas 5 y 6 (Misma estructura de bloque)</text>
+  </g>
+
+  <!-- ==================== 5. PERSONAJES (CARRUSEL) ==================== -->
+  <g id="personajes" transform="translate(0, 1860)">
+    <rect x="0" y="0" width="1200" height="490" class="wire-bg" />
+    <text x="600" y="55" class="text-meta" text-anchor="middle">ALMAS DE SMALL HEATH</text>
+    <text x="600" y="85" class="text-title" text-anchor="middle">Galería de Personajes</text>
+    <text x="600" y="110" class="text-body" text-anchor="middle">⟵ Carrusel con animación continua (Marquee) ⟶</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(60, 140)">
+      <rect x="0" y="0" width="240" height="300" class="wire-card" />
+      <rect x="12" y="12" width="216" height="160" class="wire-img-ph" />
+      <text x="120" y="98" class="text-img">Foto Perfil</text>
+      <text x="16" y="200" class="text-subtitle">Thomas Shelby</text>
+      <rect x="16" y="210" width="90" height="14" class="wire-tag" />
+      <text x="22" y="221" class="text-meta" font-size="8">PATRIARCA</text>
+      <line x1="16" y1="245" x2="210" y2="245" class="wire-line" stroke-width="2" />
+      <line x1="16" y1="258" x2="160" y2="258" class="wire-line" stroke-width="2" />
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(330, 140)">
+      <rect x="0" y="0" width="240" height="300" class="wire-card" />
+      <rect x="12" y="12" width="216" height="160" class="wire-img-ph" />
+      <text x="120" y="98" class="text-img">Foto Perfil</text>
+      <text x="16" y="200" class="text-subtitle">Arthur Shelby</text>
+      <rect x="16" y="210" width="80" height="14" class="wire-tag" />
+      <text x="22" y="221" class="text-meta" font-size="8">EL MÚSCULO</text>
+      <line x1="16" y1="245" x2="210" y2="245" class="wire-line" stroke-width="2" />
+      <line x1="16" y1="258" x2="170" y2="258" class="wire-line" stroke-width="2" />
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(600, 140)">
+      <rect x="0" y="0" width="240" height="300" class="wire-card" />
+      <rect x="12" y="12" width="216" height="160" class="wire-img-ph" />
+      <text x="120" y="98" class="text-img">Foto Perfil</text>
+      <text x="16" y="200" class="text-subtitle">Polly Gray</text>
+      <rect x="16" y="210" width="95" height="14" class="wire-tag" />
+      <text x="22" y="221" class="text-meta" font-size="8">CONSEJERA</text>
+      <line x1="16" y1="245" x2="210" y2="245" class="wire-line" stroke-width="2" />
+      <line x1="16" y1="258" x2="180" y2="258" class="wire-line" stroke-width="2" />
+    </g>
+
+    <!-- Card 4 -->
+    <g transform="translate(870, 140)">
+      <rect x="0" y="0" width="240" height="300" class="wire-card" />
+      <rect x="12" y="12" width="216" height="160" class="wire-img-ph" />
+      <text x="120" y="98" class="text-img">Foto Perfil</text>
+      <text x="16" y="200" class="text-subtitle">John Shelby</text>
+      <rect x="16" y="210" width="75" height="14" class="wire-tag" />
+      <text x="22" y="221" class="text-meta" font-size="8">REBELDE</text>
+      <line x1="16" y1="245" x2="210" y2="245" class="wire-line" stroke-width="2" />
+      <line x1="16" y1="258" x2="150" y2="258" class="wire-line" stroke-width="2" />
+    </g>
+  </g>
+
+  <!-- ==================== 6. SECCIÓN THE GARRISON ==================== -->
+  <g id="garrison" transform="translate(0, 2350)">
+    <rect x="0" y="0" width="1200" height="490" class="wire-section-alt" />
+    <text x="600" y="60" class="text-meta" text-anchor="middle">EL PUB THE GARRISON</text>
+    <text x="600" y="90" class="text-title" text-anchor="middle">Apuestas y Citas Clandestinas</text>
+    
+    <!-- Quote Card Container -->
+    <g transform="translate(300, 130)">
+      <rect x="0" y="0" width="600" height="230" class="wire-card" stroke="#334155" stroke-width="2" />
+      <!-- Badge Floating on Border -->
+      <rect x="230" y="-12" width="140" height="24" class="wire-btn" />
+      <text x="300" y="4" class="text-btn" font-size="9" letter-spacing="1">BY ORDER OF...</text>
+      
+      <!-- Quote Content -->
+      <text x="300" y="80" class="text-subtitle" text-anchor="middle" font-size="16" font-style="italic">
+        "Todo el mundo es puta, Grace..."
+      </text>
+      <line x1="100" y1="115" x2="500" y2="115" class="wire-line" stroke-width="2" stroke="#CBD5E1" />
+      
+      <!-- Action Button -->
+      <rect x="190" y="145" width="220" height="42" class="wire-btn" />
+      <text x="300" y="171" class="text-btn">NUEVA FRASE SHELBY</text>
+    </g>
+  </g>
+
+  <!-- ==================== 7. FOOTER ==================== -->
+  <g id="footer" transform="translate(0, 2840)">
+    <rect x="0" y="0" width="1200" height="140" class="wire-bg" />
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#CBD5E1" stroke-width="1.5" />
+    <text x="600" y="60" class="text-meta" text-anchor="middle">
+      © 2026 SHELBY COMPANY LIMITED — ALL RIGHTS RESERVED
+    </text>
+    <text x="600" y="85" class="text-body" font-size="11" text-anchor="middle">
+      By Order of the Peaky Blinders
+    </text>
+  </g>
+</svg>
