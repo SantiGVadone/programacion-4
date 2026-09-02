@@ -1,0 +1,672 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+
+:root {
+    --charcoal: #111111;
+    --smoke: #1A1A1A;
+    --gold: #D4AF37;
+    --amberGlow: #C66B27;
+    --ivory: #E5E0D8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--charcoal);
+    color: var(--ivory);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+::selection {
+    background-color: var(--gold);
+    color: var(--charcoal);
+}
+
+/* Header Styles */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: rgba(17, 17, 17, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+}
+
+.site-header .header-inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-header .logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.25rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.site-header .logo:hover {
+    opacity: 0.8;
+}
+
+.site-header .nav-desktop {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .site-header .nav-desktop {
+        display: flex;
+    }
+}
+
+.site-header .nav-link {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.site-header .nav-link:hover {
+    color: var(--gold);
+}
+
+.site-header .nav-link.garrison {
+    color: var(--amberGlow);
+    font-weight: 600;
+}
+
+.site-header .nav-link.garrison:hover {
+    color: var(--gold);
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    color: var(--ivory);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    color: var(--gold);
+}
+
+.dropdown-toggle svg {
+    color: var(--gold);
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle svg {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 12rem;
+    background-color: var(--smoke);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5rem);
+    transition: all 0.3s ease;
+    transform-origin: top left;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    padding-left: 1.5rem;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: none;
+    border: none;
+    color: var(--ivory);
+    cursor: pointer;
+    z-index: 100;
+}
+
+@media (min-width: 768px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+}
+
+/* Mobile Menu Panel */
+.mobile-menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: var(--charcoal);
+    border-left: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: -25px 0 50px -12px rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 1.5rem 2rem;
+    overflow-y: auto;
+}
+
+.mobile-menu-panel.open {
+    transform: translateX(0);
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: none;
+    border: none;
+    color: var(--ivory);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu-close:hover {
+    color: var(--gold);
+}
+
+.mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 1rem 0;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    color: var(--gold);
+    padding-left: 0.75rem;
+}
+
+.mobile-nav-link.garrison {
+    color: var(--amberGlow);
+    font-weight: 600;
+}
+
+.mobile-nav-link.garrison:hover {
+    color: var(--gold);
+}
+
+/* Mobile Dropdown */
+.mobile-dropdown {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 0;
+    background: none;
+    border: none;
+    color: var(--ivory);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.mobile-dropdown-toggle:hover {
+    color: var(--gold);
+}
+
+.mobile-dropdown-toggle svg {
+    color: var(--gold);
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-toggle[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    padding-left: 1rem;
+    border-left: 2px solid var(--gold);
+    margin-top: 0.5rem;
+}
+
+.mobile-dropdown-menu.open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.mobile-dropdown-menu a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(229, 224, 216, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mobile-dropdown-menu a:hover,
+.mobile-dropdown-menu a.active {
+    color: var(--gold);
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Main Content */
+.main-content {
+    padding-top: 5rem;
+}
+
+/* Season Hero Section */
+.season-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem 1.5rem;
+    position: relative;
+}
+
+.season-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(17, 17, 17, 0.4), rgba(17, 17, 17, 0.9));
+    z-index: 0;
+}
+
+.season-hero .container {
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.season-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .season-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.season-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.season-content.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.season-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.season-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--ivory);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    .season-number {
+        font-size: 3rem;
+    }
+    .season-title {
+        font-size: 3.5rem;
+    }
+}
+
+.season-description {
+    color: rgba(229, 224, 216, 0.8);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 90%;
+}
+
+@media (min-width: 768px) {
+    .season-description {
+        font-size: 1.125rem;
+    }
+}
+
+.season-meta {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.season-meta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.season-meta ul {
+    list-style: none;
+}
+
+.season-meta li {
+    color: rgba(229, 224, 216, 0.7);
+    font-size: 0.875rem;
+    padding: 0.375rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.season-meta li::before {
+    content: '•';
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+/* Season Image */
+.season-image-wrapper {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.season-image-wrapper.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.season-image-container {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    aspect-ratio: 2 / 3;
+}
+
+.season-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(125%);
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.season-image-container:hover img {
+    transform: scale(1.03);
+    filter: contrast(110%) grayscale(0%);
+}
+
+.season-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(17, 17, 17, 0.8), transparent);
+    pointer-events: none;
+}
+
+/* Trailer Section */
+.trailer-section {
+    padding: 4rem 1.5rem;
+    background-color: var(--smoke);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trailer-container {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.trailer-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.trailer-header.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.trailer-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.trailer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ivory);
+}
+
+@media (min-width: 768px) {
+    .trailer-title {
+        font-size: 2.5rem;
+    }
+}
+
+.trailer-video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.trailer-video-wrapper.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.trailer-video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Footer */
+.site-footer {
+    padding: 3rem 1.5rem;
+    background-color: var(--charcoal);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.site-footer p {
+    color: rgba(229, 224, 216, 0.5);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+.animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+.animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+.animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .season-content,
+    .season-image-wrapper,
+    .trailer-header,
+    .trailer-video-wrapper,
+    .animate-on-scroll {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Focus Styles for Accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+/* Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--amberGlow));
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.1s linear;
+}
