@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+
+:root {
+    --charcoal: #111111;
+    --smoke: #1A1A1A;
+    --gold: #D4AF37;
+    --amberGlow: #C66B27;
+    --ivory: #E5E0D8;
+}
+
+body {
+    background-color: var(--charcoal);
+    color: var(--ivory);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.episode-card {
+    background: var(--smoke);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.episode-card:hover {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.episode-card.watched {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.episode-card.watched .episode-number {
+    color: var(--gold);
+}
+
+.episode-card.watched .check-icon {
+    display: inline-flex;
+}
+
+.check-icon {
+    display: none;
+    color: var(--gold);
+}
+
+.season-btn {
+    background: var(--smoke);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--ivory);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.season-btn:hover,
+.season-btn.active {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.progress-indicator {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(198, 107, 39, 0.15));
+    border: 1px solid var(--gold);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.progress-indicator .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.progress-indicator .value {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ivory);
+}
+
+.progress-indicator .detail {
+    font-size: 0.875rem;
+    color: rgba(229, 224, 216, 0.7);
+    margin-top: 0.5rem;
+}
+
+.reset-btn {
+    background: transparent;
+    border: 1px solid var(--amberGlow);
+    color: var(--amberGlow);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: var(--amberGlow);
+    color: var(--charcoal);
+}
+
+.episode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .episode-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .episode-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.season-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
