@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon estándar para navegadores -->
+    <link rel="icon" type="image/webp" sizes="32x32" href="./img//logo/logo.webp" />
+    <link rel="icon" type="image/webp" sizes="16x16" href="./img//logo/logo.webp" />
+
+    <!-- Ícono para dispositivos Apple (iPhone / iPad cuando guardan la web en inicio) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./img//logo/logo.webp" />
+    <title>Peaky Blinders | 404</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#111111',
+                        smoke: '#1A1A1A',
+                        gold: '#D4AF37',
+                        amberGlow: '#C66B27',
+                        ivory: '#E5E0D8',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/seasons.css">
+    <style>
+        body {
+            background-color: #111111;
+            color: #E5E0D8;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .error-section {
+            min-height: calc(100vh - 5rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(to bottom, rgba(17, 17, 17, 0.55), rgba(17, 17, 17, 0.95)), url('./img/hero/hero_low_quality.webp') no-repeat center center/cover;
+        }
+
+        .error-label {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #D4AF37;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .error-code {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(6rem, 20vw, 12rem);
+            font-weight: 700;
+            line-height: 1;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+
+        .error-text {
+            max-width: 32rem;
+            margin: 0 auto 2.5rem;
+            color: rgba(229, 224, 216, 0.7);
+            font-weight: 300;
+        }
+
+        .error-btn {
+            display: inline-block;
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+            padding: 0.9rem 2rem;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .error-btn:hover {
+            background: #D4AF37;
+            color: #111111;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-gold selection:text-charcoal overflow-x-hidden">
+
+    <!-- 1. STICKY HEADER & MENÚ DESPLEGABLE -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">PEAKY BLINDERS</a>
+
+            <nav class="nav-desktop">
+                <a href="index.html#sinopsis" class="nav-link">Historia</a>
+                <a href="index.html#personajes" class="nav-link">Personajes</a>
+                <a href="index.html#garrison" class="nav-link garrison">The Garrison</a>
+
+                <div class="dropdown">
+                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span>TEMPORADAS</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="seasons/temporada1.html" role="menuitem">Temporada 1</a>
+                        <a href="seasons/temporada2.html" role="menuitem">Temporada 2</a>
+                        <a href="seasons/temporada3.html" role="menuitem">Temporada 3</a>
+                        <a href="seasons/temporada4.html" role="menuitem">Temporada 4</a>
+                        <a href="seasons/temporada5.html" role="menuitem">Temporada 5</a>
+                        <a href="seasons/temporada6.html" role="menuitem">Temporada 6</a>
+                    </div>
+                </div>
+
+                <a href="progreso.html" class="nav-link">Progreso</a>
+                <a href="galeria.html" class="nav-link">Galería</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </nav>
+
+            <button class="mobile-menu-btn" aria-label="Menú" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu-overlay" aria-hidden="true"></div>
+    <div class="mobile-menu-panel" role="navigation" aria-label="Menú principal">
+        <button class="mobile-menu-close" aria-label="Cerrar menú">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <nav class="mobile-menu-nav">
+            <a href="index.html#sinopsis" class="mobile-nav-link">Historia</a>
+            <a href="index.html#personajes" class="mobile-nav-link">Personajes</a>
+            <a href="index.html#garrison" class="mobile-nav-link garrison">The Garrison</a>
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    <span>TEMPORADAS</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-menu" role="menu">
+                    <a href="seasons/temporada1.html" role="menuitem">Temporada 1</a>
+                    <a href="seasons/temporada2.html" role="menuitem">Temporada 2</a>
+                    <a href="seasons/temporada3.html" role="menuitem">Temporada 3</a>
+                    <a href="seasons/temporada4.html" role="menuitem">Temporada 4</a>
+                    <a href="seasons/temporada5.html" role="menuitem">Temporada 5</a>
+                    <a href="seasons/temporada6.html" role="menuitem">Temporada 6</a>
+                </div>
+            </div>
+
+            <a href="progreso.html" class="mobile-nav-link">Progreso</a>
+            <a href="galeria.html" class="mobile-nav-link">Galería</a>
+            <a href="contacto.html" class="mobile-nav-link">Contacto</a>
+        </nav>
+    </div>
+
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <main class="main-content">
+        <section class="error-section">
+            <div>
+                <span class="error-label">Perdido en Small Heath</span>
+                <h1 class="error-code">404</h1>
+                <p class="error-text">El camino que buscas no existe en nuestro imperio. Quizá la niebla se lo tragó, o
+                    terminó en manos de Alfie.</p>
+                <a href="index.html" class="error-btn">Volver al inicio</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="./scripts/seasons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+
+:root {
+    --charcoal: #111111;
+    --smoke: #1A1A1A;
+    --gold: #D4AF37;
+    --amberGlow: #C66B27;
+    --ivory: #E5E0D8;
+}
+
+/* Hero de contacto */
+.contact-hero {
+    padding: 6rem 1.5rem 5rem;
+    position: relative;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(17, 17, 17, 0.55), rgba(17, 17, 17, 0.95)), url('../img/hero/hero_low_quality.webp') no-repeat center center/cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--ivory);
+    margin-bottom: 1rem;
+}
+
+.contact-subtitle {
+    max-width: 40rem;
+    margin: 0 auto;
+    color: rgba(229, 224, 216, 0.7);
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+/* Sección principal */
+.contact-section {
+    padding: 5rem 1.5rem 6rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 5fr 7fr;
+        align-items: start;
+    }
+}
+
+.contact-card {
+    background: var(--smoke);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+
+@media (min-width: 768px) {
+    .contact-card {
+        padding: 2.5rem;
+    }
+}
+
+/* Panel de información */
+.contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--ivory);
+    margin-bottom: 1rem;
+}
+
+.contact-info > p {
+    color: rgba(229, 224, 216, 0.7);
+    font-weight: 300;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info-list {
+    list-style: none;
+}
+
+.contact-info-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.875rem;
+    color: rgba(229, 224, 216, 0.85);
+}
+
+.contact-info-list li span {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* Formulario */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact-form label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.375rem;
+    padding: 0.8rem 1rem;
+    color: var(--ivory);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(229, 224, 216, 0.35);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 8rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.5);
+}
+
+.contact-submit {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 0.375rem;
+    color: var(--gold);
+    font-family: inherit;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-submit:hover {
+    background: var(--gold);
+    color: var(--charcoal);
+}
+
+.contact-note {
+    margin-top: 0.85rem;
+    font-size: 0.7rem;
+    color: rgba(229, 224, 216, 0.5);
+    text-align: center;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .contact-form input,
+    .contact-form textarea,
+    .contact-submit {
+        transition: none;
+    }
+}
