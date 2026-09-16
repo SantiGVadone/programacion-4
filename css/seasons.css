@@ -71,10 +71,10 @@ body {
 .site-header .nav-desktop {
     display: none;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .site-header .nav-desktop {
         display: flex;
     }
@@ -193,7 +193,7 @@ body {
     z-index: 100;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .mobile-menu-btn {
         display: none;
     }

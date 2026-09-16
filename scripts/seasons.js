@@ -200,7 +200,7 @@
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                if (window.innerWidth >= 768 && menuPanel.classList.contains('open')) {
+                if (window.innerWidth >= 1024 && menuPanel.classList.contains('open')) {
                     closeMenu();
                 }
             }, 100);
