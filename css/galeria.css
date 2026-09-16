@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+
+:root {
+  --charcoal: #111111;
+  --smoke: #1a1a1a;
+  --gold: #d4af37;
+  --amberGlow: #c66b27;
+  --ivory: #e5e0d8;
+}
+
+/* Hero de la galería */
+.gallery-hero {
+  padding: 6rem 1.5rem 5rem;
+  position: relative;
+  text-align: center;
+  background:
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.55), rgba(17, 17, 17, 0.95)),
+    url('../img/hero/hero_low_quality.webp') no-repeat center center/cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gallery-hero-inner {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.gallery-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.gallery-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--ivory);
+  margin-bottom: 1rem;
+}
+
+.gallery-subtitle {
+  max-width: 40rem;
+  margin: 0 auto;
+  color: rgba(229, 224, 216, 0.7);
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+/* Sección principal */
+.gallery-section {
+  padding: 5rem 1.5rem;
+}
+
+/* Categorías */
+.gallery-category {
+  margin-bottom: 4rem;
+}
+
+.gallery-category:last-child {
+  margin-bottom: 0;
+}
+
+.gallery-category-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-category-head span {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.gallery-category-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--ivory);
+  margin-top: 0.35rem;
+}
+
+/* Grilla */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Ítem de la galería */
+.gallery-item {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  background: var(--smoke);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.375rem;
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    border-color 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  animation: galleryFadeIn 0.7s ease-out both;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(115%);
+  transition:
+    filter 0.5s ease,
+    transform 0.6s ease;
+}
+
+.gallery-item:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item:hover img {
+  filter: grayscale(0%) contrast(100%);
+  transform: scale(1.05);
+}
+
+.gallery-item-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem 0.75rem 0.6rem;
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.9), transparent);
+  color: var(--ivory);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-item-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes galleryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajustes de tema para PhotoSwipe */
+.pswp {
+  --pswp-bg: rgba(17, 17, 17, 0.97);
+  --pswp-icon-color: var(--gold);
+  --pswp-icon-color-secondary: rgba(212, 175, 55, 0.6);
+  --pswp-caption-color: var(--ivory);
+  --pswp-caption-size: 0.85rem;
+}
+
+.pswp__caption__center {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-category.animate-on-scroll,
+  .gallery-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .gallery-item img {
+    transition: none;
+    filter: grayscale(100%) contrast(115%);
+  }
+}
